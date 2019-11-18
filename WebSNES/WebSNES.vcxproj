@@ -129,8 +129,9 @@
   <ItemGroup>
     <ClInclude Include="Base\Integer.h" />
     <ClInclude Include="Base\Types.h" />
-    <ClInclude Include="Processors\Disassembler.h" />
+    <ClInclude Include="Processors\Register.h" />
     <ClInclude Include="Processors\WDC65816\CPU.h" />
+    <ClInclude Include="Processors\WDC65816\Disassembler.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

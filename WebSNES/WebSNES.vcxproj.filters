@@ -21,7 +21,10 @@
     <ClInclude Include="Processors\WDC65816\CPU.h">
       <Filter>Processors\WDC65816</Filter>
     </ClInclude>
-    <ClInclude Include="Processors\Disassembler.h">
+    <ClInclude Include="Processors\WDC65816\Disassembler.h">
+      <Filter>Processors\WDC65816</Filter>
+    </ClInclude>
+    <ClInclude Include="Processors\Register.h">
       <Filter>Processors</Filter>
     </ClInclude>
   </ItemGroup>
