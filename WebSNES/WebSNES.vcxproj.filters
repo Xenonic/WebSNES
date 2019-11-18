@@ -27,5 +27,16 @@
     <ClInclude Include="Processors\Register.h">
       <Filter>Processors</Filter>
     </ClInclude>
+    <ClInclude Include="Processors\Instruction.h">
+      <Filter>Processors</Filter>
+    </ClInclude>
+    <ClInclude Include="Processors\WDC65816\Instructions.h">
+      <Filter>Processors\WDC65816</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="Processors\WDC65816\CPU.cpp">
+      <Filter>Processors\WDC65816</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>

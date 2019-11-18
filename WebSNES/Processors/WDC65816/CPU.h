@@ -2,6 +2,7 @@
 
 #include "../../Base/Types.h"
 #include "../Register.h"
+#include "../Instruction.h"
 
 class WDC65816
 {
@@ -24,7 +25,7 @@ public:
 		B = 0b00010000,  // (Emulation) Break
 	};
 
-	namespace Registers
+	struct
 	{
 		Register<16> Accumulator;
 		Register<16> IndexX;
@@ -35,7 +36,7 @@ public:
 		Register<8> ProgramBank;
 		Register<8> ProcessorStatus;
 		Register<16> ProgramCounter;
-	}
+	} Registers;
 
 	struct
 	{
@@ -54,14 +55,14 @@ public:
 	} IO;
 
 public:
-	// #TODO: Load clock rate based on PAL/NTSC in header from cart.
+	// #TODO: Load clock rate based on PAL/NTSC in header from cartridge?
 
+  void Boot(bool Reset);
 	void Tick(uint32 Clocks);
-	void Boot(bool Reset);
 
 	uint8 ReadMemory(uint11 Address);
 	void WriteMemory(uint11 Address, uint8 Data);
-
+  
 	uint8 ReadIO(uint16 Address);
 	void WriteIO(uint16 Address, uint8 Data);
 
@@ -75,4 +76,6 @@ public:
 
 	void rdy_L(bool);
 	void rdy_Addr(bool Valid, uint16 Value = 0);
+
+	void Execute(const Instruction& InInstruction);
 };
