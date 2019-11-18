@@ -6,11 +6,18 @@
 class WDC65816
 {
 public:
-	// R/W operations for RAM
+	//TODO: Load PAL/NTSC based on header from cart.
+	//  inline auto rate() const -> uint { return Region::PAL() ? 16 : 12; }
+	
+	//cpu.cpp
+	auto tick(uint clocks) -> void;
+	auto boot(bool reset) -> void;
+
+  	//memory.cpp
+		// R/W operations for RAM
 	auto readRAM(uint11 addr) -> uint8;
 	auto writeRAM(uint11 addr, uint8 data) -> void;
-
-	// Read and write IO from RAM
+		// Read and write IO from RAM
 	auto readIO(uint16 addr) -> uint8;
 	auto writeIO(uint16 addr, uint8 data) -> void;
 
