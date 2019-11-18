@@ -2,6 +2,7 @@
 
 #include "../../Base/Types.h"
 #include "../Register.h"
+#include "../Instruction.h"
 
 class WDC65816
 {
@@ -21,7 +22,7 @@ public:
 		B = 0b00010000,  // (Emulation) Break
 	};
 
-	namespace Registers
+	struct
 	{
 		Register<16> Accumulator;
 		Register<16> IndexX;
@@ -32,5 +33,7 @@ public:
 		Register<8> ProgramBank;
 		Register<8> ProcessorStatus;
 		Register<16> ProgramCounter;
-	}
+	} Registers;
+
+	void Execute(const Instruction& InInstruction);
 };
