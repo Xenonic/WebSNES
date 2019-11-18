@@ -66,6 +66,11 @@ public:
 	uint8 ReadIO(uint16 Address);
 	void WriteIO(uint16 Address, uint8 Data);
 
+	bool IsStatusSet(StatusFlags Flag)
+	{
+		return Registers.ProcessorStatus.Data & Flag;
+	}
+
 	void nmi(uint16& Vector);
 	void oamdma();
 
