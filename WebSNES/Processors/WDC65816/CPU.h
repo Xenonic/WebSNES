@@ -59,7 +59,6 @@ public:
 		Register<8> ProcessorStatus;
 		Register<16> ProgramCounter;
 	}
-	void tick();
 
 protected:
 	uint8 ram[0x800];
