@@ -6,6 +6,25 @@
 class WDC65816
 {
 public:
+	// R/W operations for RAM
+	auto readRAM(uint11 addr) -> uint8;
+	auto writeRAM(uint11 addr, uint8 data) -> void;
+
+	// Read and write IO from RAM
+	auto readIO(uint16 addr) -> uint8;
+	auto writeIO(uint16 addr, uint8 data) -> void;
+
+	auto nmi(uint16& vector) -> void override;
+	auto oamdma() -> void;
+	
+	//  Timing and IO operations
+  	auto nmi_L(bool) -> void;
+  	auto irq_L(bool) -> void;
+  	auto apu_L(bool) -> void;
+
+  	auto rdy_L(bool) -> void;
+  	auto rdy_Addr(bool valid, uint16 value = 0) -> void;
+
 	// Statuses for the ProcessorStatus register
 	enum class StatusFlags
 	{
@@ -33,4 +52,23 @@ public:
 		Register<8> ProcessorStatus;
 		Register<16> ProgramCounter;
 	}
+	void tick();
+
+protected:
+	uint8 ram[0x800];
+
+	struct IO {
+    	bool interrPending = 0;
+    	bool nmiPending = 0;
+    	bool nmiLine = 0;
+    	bool irqLine = 0;
+    	bool apuLine = 0;
+
+    	bool rdyLine = 1;
+    	bool rdyAddrValid = 0;
+    	uint16 rdyAddrValue;
+
+    	bool oamdmaPending = 0;
+    	uint8 oamdmaPage;
+  } io;
 };
