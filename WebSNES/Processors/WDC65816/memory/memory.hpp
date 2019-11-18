@@ -3,4 +3,4 @@ struct MemoryBus {
   auto write(uint16 addr, uint8 data)->void;
 };
 
-extern Bus bus;
+extern MemoryBus memBus;
