@@ -35,7 +35,6 @@
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Test.cpp" />
     <ClCompile Include="Processors\WDC65816\CPU.cpp">
       <Filter>Processors\WDC65816</Filter>
     </ClCompile>
