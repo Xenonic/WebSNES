@@ -1,29 +1,31 @@
 #pragma once
 
-using int1 = ;
-using int2 = ;
-using int3 = ;
-using int4 = ;
-using int5 = ;
-using int6 = ;
-using int7 = ;
-using int8 = ;
-using int16 = ;
-using int24 = ;
-using int32 = ;
-using int48 = ;
-using int64 = ;
+#include "Integer.h"
 
-using uint1 = ;
-using uint2 = ;
-using uint3 = ;
-using uint4 = ;
-using uint5 = ;
-using uint6 = ;
-using uint7 = ;
-using uint8 = ;
-using uint16 = ;
-using uint24 = ;
-using uint32 = ;
-using uint48 = ;
-using uint64 = ;
+using int1 = Integer<1, true>;
+using int2 = Integer<2, true>;
+using int3 = Integer<3, true>;
+using int4 = Integer<4, true>;
+using int5 = Integer<5, true>;
+using int6 = Integer<6, true>;
+using int7 = Integer<7, true>;
+using int8 = Integer<8, true>;
+using int16 = Integer<16, true>;
+using int24 = Integer<24, true>;
+using int32 = Integer<32, true>;
+using int48 = Integer<48, true>;
+using int64 = Integer<64, true>;
+
+using uint1 = Integer<1, false>;
+using uint2 = Integer<2, false>;
+using uint3 = Integer<3, false>;
+using uint4 = Integer<4, false>;
+using uint5 = Integer<5, false>;
+using uint6 = Integer<6, false>;
+using uint7 = Integer<7, false>;
+using uint8 = Integer<8, false>;
+using uint16 = Integer<16, false>;
+using uint24 = Integer<24, false>;
+using uint32 = Integer<32, false>;
+using uint48 = Integer<48, false>;
+using uint64 = Integer<64, false>;
