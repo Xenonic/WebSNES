@@ -1,531 +1,536 @@
 #pragma once
 
-#include <array>
+#include "CPU.h"
+
 #include <map>
 
-void ADC(const WDC65816& CPU, std::array<uint8, 3> Operand)
+void ADC(WDC65816& CPU)
+{
+	//CPU.Registers.Accumulator += Operand[0] + (CPU.IsStatusSet(StatusFlags::C) ? 1 : 0);
+}
+
+void AND(WDC65816& CPU)
 {
 
 }
 
-void AND(const WDC65816& CPU, std::array<uint8, 3> Operand)
+void ASL(WDC65816& CPU)
 {
 
 }
 
-void ASL(const WDC65816& CPU, std::array<uint8, 3> Operand)
+void BCC(WDC65816& CPU)
 {
 
 }
 
-void BCC(const WDC65816& CPU, std::array<uint8, 3> Operand)
+void BCS(WDC65816& CPU)
 {
 
 }
 
-void BCS(const WDC65816& CPU, std::array<uint8, 3> Operand)
+void BEQ(WDC65816& CPU)
 {
 
 }
 
-void BEQ(const WDC65816& CPU, std::array<uint8, 3> Operand)
+void BIT(WDC65816& CPU)
 {
 
 }
 
-void BIT(const WDC65816& CPU, std::array<uint8, 3> Operand)
+void BMI(WDC65816& CPU)
 {
 
 }
 
-void BMI(const WDC65816& CPU, std::array<uint8, 3> Operand)
+void BNE(WDC65816& CPU)
 {
 
 }
 
-void BNE(const WDC65816& CPU, std::array<uint8, 3> Operand)
+void BPL(WDC65816& CPU)
 {
 
 }
 
-void BPL(const WDC65816& CPU, std::array<uint8, 3> Operand)
+void BRA(WDC65816& CPU)
 {
 
 }
 
-void BRA(const WDC65816& CPU, std::array<uint8, 3> Operand)
+void BRK(WDC65816& CPU)
 {
 
 }
 
-void BRK(const WDC65816& CPU, std::array<uint8, 3> Operand)
+void BRL(WDC65816& CPU)
 {
 
 }
 
-void BRL(const WDC65816& CPU, std::array<uint8, 3> Operand)
+void BVC(WDC65816& CPU)
 {
 
 }
 
-void BVC(const WDC65816& CPU, std::array<uint8, 3> Operand)
+void BVS(WDC65816& CPU)
 {
 
 }
 
-void BVS(const WDC65816& CPU, std::array<uint8, 3> Operand)
+void CLC(WDC65816& CPU)
 {
 
 }
 
-void CLC(const WDC65816& CPU, std::array<uint8, 3> Operand)
+void CLD(WDC65816& CPU)
 {
 
 }
 
-void CLD(const WDC65816& CPU, std::array<uint8, 3> Operand)
+void CLI(WDC65816& CPU)
 {
 
 }
 
-void CLI(const WDC65816& CPU, std::array<uint8, 3> Operand)
+void CLV(WDC65816& CPU)
 {
 
 }
 
-void CLV(const WDC65816& CPU, std::array<uint8, 3> Operand)
-{
-
-}
-
-void CMP(const WDC65816& CPU, std::array<uint8, 3> Operand)
+void CMP(WDC65816& CPU)
 {
 	
 }
 
-void CPX(const WDC65816& CPU, std::array<uint8, 3> Operand)
+void CPX(WDC65816& CPU)
 {
 
 }
 
-void CPY(const WDC65816& CPU, std::array<uint8, 3> Operand)
+void CPY(WDC65816& CPU)
 {
 
 }
 
-void COP(const WDC65816& CPU, std::array<uint8, 3> Operand)
+void COP(WDC65816& CPU)
 {
 
 }
 
-void DEC(const WDC65816& CPU, std::array<uint8, 3> Operand)
+void DEC(WDC65816& CPU)
 {
 
 }
 
-void DEX(const WDC65816& CPU, std::array<uint8, 3> Operand)
+void DEX(WDC65816& CPU)
 {
 
 }
 
-void DEY(const WDC65816& CPU, std::array<uint8, 3> Operand)
+void DEY(WDC65816& CPU)
 {
 
 }
 
-void EOR(const WDC65816& CPU, std::array<uint8, 3> Operand)
+void EOR(WDC65816& CPU)
 {
 
 }
 
-void INC(const WDC65816& CPU, std::array<uint8, 3> Operand)
+void INC(WDC65816& CPU)
 {
 
 }
 
-void INX(const WDC65816& CPU, std::array<uint8, 3> Operand)
+void INX(WDC65816& CPU)
 {
 
 }
 
-void INY(const WDC65816& CPU, std::array<uint8, 3> Operand)
+void INY(WDC65816& CPU)
 {
 
 }
 
-void JMP(const WDC65816& CPU, std::array<uint8, 3> Operand)
+void JMP(WDC65816& CPU)
 {
 
 }
 
-void JML(const WDC65816& CPU, std::array<uint8, 3> Operand)
+void JML(WDC65816& CPU)
 {
 
 }
 
-void JSR(const WDC65816& CPU, std::array<uint8, 3> Operand)
+void JSR(WDC65816& CPU)
 {
 
 }
 
-void JSL(const WDC65816& CPU, std::array<uint8, 3> Operand)
+void JSL(WDC65816& CPU)
 {
 
 }
 
-void LDA(const WDC65816& CPU, std::array<uint8, 3> Operand)
+void LDA(WDC65816& CPU)
 {
 
 }
 
-void LDX(const WDC65816& CPU, std::array<uint8, 3> Operand)
+void LDX(WDC65816& CPU)
 {
 
 }
 
-void LDY(const WDC65816& CPU, std::array<uint8, 3> Operand)
+void LDY(WDC65816& CPU)
 {
 
 }
 
-void LSR(const WDC65816& CPU, std::array<uint8, 3> Operand)
+void LSR(WDC65816& CPU)
 {
 
 }
 
-void MVN(const WDC65816& CPU, std::array<uint8, 3> Operand)
+void MVN(WDC65816& CPU)
 {
 
 }
 
-void MVP(const WDC65816& CPU, std::array<uint8, 3> Operand)
+void MVP(WDC65816& CPU)
 {
 
 }
 
-void NOP(const WDC65816& CPU, std::array<uint8, 3> Operand)
+void NOP(WDC65816& CPU)
 {
 
 }
 
-void ORA(const WDC65816& CPU, std::array<uint8, 3> Operand)
+void ORA(WDC65816& CPU)
 {
 
 }
 
-void PEA(const WDC65816& CPU, std::array<uint8, 3> Operand)
+void PEA(WDC65816& CPU)
 {
 
 }
 
-void PEI(const WDC65816& CPU, std::array<uint8, 3> Operand)
+void PEI(WDC65816& CPU)
 {
 
 }
 
-void PER(const WDC65816& CPU, std::array<uint8, 3> Operand)
+void PER(WDC65816& CPU)
 {
 
 }
 
-void PHA(const WDC65816& CPU, std::array<uint8, 3> Operand)
+void PHA(WDC65816& CPU)
 {
 
 }
 
-void PHD(const WDC65816& CPU, std::array<uint8, 3> Operand)
+void PHD(WDC65816& CPU)
 {
 
 }
 
-void PHK(const WDC65816& CPU, std::array<uint8, 3> Operand)
+void PHK(WDC65816& CPU)
 {
 
 }
 
-void PHX(const WDC65816& CPU, std::array<uint8, 3> Operand)
+void PHX(WDC65816& CPU)
 {
 
 }
 
-void PHY(const WDC65816& CPU, std::array<uint8, 3> Operand)
+void PHY(WDC65816& CPU)
 {
 
 }
 
-void PLA(const WDC65816& CPU, std::array<uint8, 3> Operand)
+void PLA(WDC65816& CPU)
 {
 
 }
 
-void PLD(const WDC65816& CPU, std::array<uint8, 3> Operand)
+void PLD(WDC65816& CPU)
 {
 
 }
 
-void PLP(const WDC65816& CPU, std::array<uint8, 3> Operand)
+void PLP(WDC65816& CPU)
 {
 
 }
 
-void PLX(const WDC65816& CPU, std::array<uint8, 3> Operand)
+void PLX(WDC65816& CPU)
 {
 
 }
 
-void PLY(const WDC65816& CPU, std::array<uint8, 3> Operand)
+void PLY(WDC65816& CPU)
 {
 
 }
 
-void REP(const WDC65816& CPU, std::array<uint8, 3> Operand)
+void REP(WDC65816& CPU)
 {
 
 }
 
-void ROL(const WDC65816& CPU, std::array<uint8, 3> Operand)
+void ROL(WDC65816& CPU)
 {
 
 }
 
-void ROR(const WDC65816& CPU, std::array<uint8, 3> Operand)
+void ROR(WDC65816& CPU)
 {
 
 }
 
-void RTI(const WDC65816& CPU, std::array<uint8, 3> Operand)
+void RTI(WDC65816& CPU)
 {
 
 }
 
-void RTS(const WDC65816& CPU, std::array<uint8, 3> Operand)
+void RTS(WDC65816& CPU)
 {
 
 }
 
-void RTL(const WDC65816& CPU, std::array<uint8, 3> Operand)
+void RTL(WDC65816& CPU)
 {
 
 }
 
-void SBC(const WDC65816& CPU, std::array<uint8, 3> Operand)
+void SBC(WDC65816& CPU)
+{
+	//CPU.Registers.Accumulator -= Operand[0] - (CPU.IsStatusSet(StatusFlags::C) ? 0 : 1);
+}
+
+void SEC(WDC65816& CPU)
 {
 
 }
 
-void SEC(const WDC65816& CPU, std::array<uint8, 3> Operand)
+void SED(WDC65816& CPU)
 {
 
 }
 
-void SED(const WDC65816& CPU, std::array<uint8, 3> Operand)
-{
-
-}
-
-void SEI(const WDC65816& CPU, std::array<uint8, 3> Operand)
+void SEI(WDC65816& CPU)
 {
 	
 }
 
-void SEP(const WDC65816& CPU, std::array<uint8, 3> Operand)
+void SEP(WDC65816& CPU)
 {
 
 }
 
-void STA(const WDC65816& CPU, std::array<uint8, 3> Operand)
+void STA(WDC65816& CPU)
 {
 
 }
 
-void STX(const WDC65816& CPU, std::array<uint8, 3> Operand)
+void STX(WDC65816& CPU)
 {
 
 }
 
-void STY(const WDC65816& CPU, std::array<uint8, 3> Operand)
+void STY(WDC65816& CPU)
 {
 
 }
 
-void STP(const WDC65816& CPU, std::array<uint8, 3> Operand)
+void STP(WDC65816& CPU)
 {
 
 }
 
-void STZ(const WDC65816& CPU, std::array<uint8, 3> Operand)
+void STZ(WDC65816& CPU)
 {
 
 }
 
-void TAX(const WDC65816& CPU, std::array<uint8, 3> Operand)
+void TAX(WDC65816& CPU)
 {
 
 }
 
-void TAY(const WDC65816& CPU, std::array<uint8, 3> Operand)
+void TAY(WDC65816& CPU)
 {
 
 }
 
-void TCD(const WDC65816& CPU, std::array<uint8, 3> Operand)
+void TCD(WDC65816& CPU)
 {
 
 }
 
-void TCS(const WDC65816& CPU, std::array<uint8, 3> Operand)
+void TCS(WDC65816& CPU)
 {
 
 }
 
-void TDC(const WDC65816& CPU, std::array<uint8, 3> Operand)
+void TDC(WDC65816& CPU)
 {
 
 }
 
-void TSC(const WDC65816& CPU, std::array<uint8, 3> Operand)
+void TSC(WDC65816& CPU)
 {
 
 }
 
-void TSX(const WDC65816& CPU, std::array<uint8, 3> Operand)
+void TSX(WDC65816& CPU)
 {
 
 }
 
-void TXA(const WDC65816& CPU, std::array<uint8, 3> Operand)
+void TXA(WDC65816& CPU)
 {
 
 }
 
-void TXS(const WDC65816& CPU, std::array<uint8, 3> Operand)
+void TXS(WDC65816& CPU)
 {
 
 }
 
-void TXY(const WDC65816& CPU, std::array<uint8, 3> Operand)
+void TXY(WDC65816& CPU)
 {
 
 }
 
-void TYA(const WDC65816& CPU, std::array<uint8, 3> Operand)
+void TYA(WDC65816& CPU)
 {
 
 }
 
-void TYX(const WDC65816& CPU, std::array<uint8, 3> Operand)
+void TYX(WDC65816& CPU)
 {
 
 }
 
-void TRB(const WDC65816& CPU, std::array<uint8, 3> Operand)
+void TRB(WDC65816& CPU)
 {
 
 }
 
-void TSB(const WDC65816& CPU, std::array<uint8, 3> Operand)
+void TSB(WDC65816& CPU)
 {
 
 }
 
-void WAI(const WDC65816& CPU, std::array<uint8, 3> Operand)
+void WAI(WDC65816& CPU)
 {
 
 }
 
-void XCE(const WDC65816& CPU, std::array<uint8, 3> Operand)
+void XCE(WDC65816& CPU)
 {
 
 }
+
+#define OPERATION(OpCode) { #OpCode, &##OpCode }
 
 using InstructionRef = void(*)(const WDC65816&, std::array<uint8, 3>);
 
 std::map<std::string, InstructionRef> ExecutionMap =
 {
-	{ "ADC", &ADC },
-	{ "AND", &AND },
-	{ "ASL", &ASL },
-	{ "BCC", &BCC },
-	{ "BCS", &BCS },
-	{ "BEQ", &BEQ },
-	{ "BIT", &BIT },
-	{ "BMI", &BMI },
-	{ "BNE", &BNE },
-	{ "BPL", &BPL },
-	{ "BRA", &BRA },
-	{ "BRK", &BRK },
-	{ "BRL", &BRL },
-	{ "BVC", &BVC },
-	{ "BVS", &BVS },
-	{ "CLC", &CLC },
-	{ "CLD", &CLD },
-	{ "CLI", &CLI },
-	{ "CLV", &CLV },
-	{ "CMP", &CMP },
-	{ "CPX", &CPX },
-	{ "CPY", &CPY },
-	{ "COP", &COP },
-	{ "DEC", &DEC },
-	{ "DEX", &DEX },
-	{ "DEY", &DEY },
-	{ "EOR", &EOR },
-	{ "INC", &INC },
-	{ "INX", &INX },
-	{ "INY", &INY },
-	{ "JMP", &JMP },
-	{ "JML", &JML },
-	{ "JSR", &JSR },
-	{ "JSL", &JSL },
-	{ "LDA", &LDA },
-	{ "LDX", &LDX },
-	{ "LDY", &LDY },
-	{ "LSR", &LSR },
-	{ "MVN", &MVN },
-	{ "MVP", &MVP },
-	{ "NOP", &NOP },
-	{ "ORA", &ORA },
-	{ "PEA", &PEA },
-	{ "PEI", &PEI },
-	{ "PER", &PER },
-	{ "PHA", &PHA },
-	{ "PHD", &PHD },
-	{ "PHK", &PHK },
-	{ "PHX", &PHX },
-	{ "PHY", &PHY },
-	{ "PLA", &PLA },
-	{ "PLD", &PLD },
-	{ "PLP", &PLP },
-	{ "PLX", &PLX },
-	{ "PLY", &PLY },
-	{ "REP", &REP },
-	{ "ROL", &ROL },
-	{ "ROR", &ROR },
-	{ "RTI", &RTI },
-	{ "RTS", &RTS },
-	{ "RTL", &RTL },
-	{ "SBC", &SBC },
-	{ "SEC", &SEC },
-	{ "SEI", &SEI },
-	{ "SEP", &SEP },
-	{ "STA", &STA },
-	{ "STX", &STX },
-	{ "STY", &STY },
-	{ "STP", &STP },
-	{ "STZ", &STZ },
-	{ "TAX", &TAX },
-	{ "TAY", &TAY },
-	{ "TCD", &TCD },
-	{ "TCS", &TCS },
-	{ "TDC", &TDC },
-	{ "TSC", &TSC },
-	{ "TSX", &TSX },
-	{ "TXA", &TXA },
-	{ "TXS", &TXS },
-	{ "TXY", &TXY },
-	{ "TYA", &TYA },
-	{ "TYX", &TYX },
-	{ "TRB", &TRB },
-	{ "TSB", &TSB },
-	{ "WAI", &WAI },
-	{ "XCE", &XCE },
+	OPERATION(ADC),
+	OPERATION(AND),
+	OPERATION(ASL),
+	OPERATION(BCC),
+	OPERATION(BCS),
+	OPERATION(BEQ),
+	OPERATION(BIT),
+	OPERATION(BMI),
+	OPERATION(BNE),
+	OPERATION(BPL),
+	OPERATION(BRA),
+	OPERATION(BRK),
+	OPERATION(BRL),
+	OPERATION(BVC),
+	OPERATION(BVS),
+	OPERATION(CLC),
+	OPERATION(CLD),
+	OPERATION(CLI),
+	OPERATION(CLV),
+	OPERATION(CMP),
+	OPERATION(CPX),
+	OPERATION(CPY),
+	OPERATION(COP),
+	OPERATION(DEC),
+	OPERATION(DEX),
+	OPERATION(DEY),
+	OPERATION(EOR),
+	OPERATION(INC),
+	OPERATION(INX),
+	OPERATION(INY),
+	OPERATION(JMP),
+	OPERATION(JML),
+	OPERATION(JSR),
+	OPERATION(JSL),
+	OPERATION(LDA),
+	OPERATION(LDX),
+	OPERATION(LDY),
+	OPERATION(LSR),
+	OPERATION(MVN),
+	OPERATION(MVP),
+	OPERATION(NOP),
+	OPERATION(ORA),
+	OPERATION(PEA),
+	OPERATION(PEI),
+	OPERATION(PER),
+	OPERATION(PHA),
+	OPERATION(PHD),
+	OPERATION(PHK),
+	OPERATION(PHX),
+	OPERATION(PHY),
+	OPERATION(PLA),
+	OPERATION(PLD),
+	OPERATION(PLP),
+	OPERATION(PLX),
+	OPERATION(PLY),
+	OPERATION(REP),
+	OPERATION(ROL),
+	OPERATION(ROR),
+	OPERATION(RTI),
+	OPERATION(RTS),
+	OPERATION(RTL),
+	OPERATION(SBC),
+	OPERATION(SEC),
+	OPERATION(SEI),
+	OPERATION(SEP),
+	OPERATION(STA),
+	OPERATION(STX),
+	OPERATION(STY),
+	OPERATION(STP),
+	OPERATION(STZ),
+	OPERATION(TAX),
+	OPERATION(TAY),
+	OPERATION(TCD),
+	OPERATION(TCS),
+	OPERATION(TDC),
+	OPERATION(TSC),
+	OPERATION(TSX),
+	OPERATION(TXA),
+	OPERATION(TXS),
+	OPERATION(TXY),
+	OPERATION(TYA),
+	OPERATION(TYX),
+	OPERATION(TRB),
+	OPERATION(TSB),
+	OPERATION(WAI),
+	OPERATION(XCE),
 };
+
+#undef OPERATION
