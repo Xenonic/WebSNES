@@ -7,6 +7,9 @@
     <Filter Include="Base">
       <UniqueIdentifier>{313d7c00-5bc4-4abf-9d98-81fe5ffcd400}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Processors\WDC65816">
+      <UniqueIdentifier>{c241a2e3-029d-4c89-9372-50adf1662539}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Base\Types.h">
@@ -14,6 +17,12 @@
     </ClInclude>
     <ClInclude Include="Base\Integer.h">
       <Filter>Base</Filter>
+    </ClInclude>
+    <ClInclude Include="Processors\WDC65816\CPU.h">
+      <Filter>Processors\WDC65816</Filter>
+    </ClInclude>
+    <ClInclude Include="Processors\Disassembler.h">
+      <Filter>Processors</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
