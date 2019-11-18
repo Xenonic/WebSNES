@@ -5,33 +5,10 @@
 
 class WDC65816
 {
+private:
+	uint8 RAM[0x800];  // #TODO Can't find specification on this? Documentation doesn't list the CPU having 2048 bytes of RAM.
+
 public:
-	//TODO: Load PAL/NTSC based on header from cart.
-	//  inline auto rate() const -> uint { return Region::PAL() ? 16 : 12; }
-	
-	//cpu.cpp
-	auto tick(uint clocks) -> void;
-	auto boot(bool reset) -> void;
-
-  	//memory.cpp
-		// R/W operations for RAM
-	auto readRAM(uint11 addr) -> uint8;
-	auto writeRAM(uint11 addr, uint8 data) -> void;
-		// Read and write IO from RAM
-	auto readIO(uint16 addr) -> uint8;
-	auto writeIO(uint16 addr, uint8 data) -> void;
-
-	auto nmi(uint16& vector) -> void override;
-	auto oamdma() -> void;
-	
-	//  Timing and IO operations
-  	auto nmi_L(bool) -> void;
-  	auto irq_L(bool) -> void;
-  	auto apu_L(bool) -> void;
-
-  	auto rdy_L(bool) -> void;
-  	auto rdy_Addr(bool valid, uint16 value = 0) -> void;
-
 	// Statuses for the ProcessorStatus register
 	enum class StatusFlags
 	{
@@ -60,21 +37,42 @@ public:
 		Register<16> ProgramCounter;
 	}
 
-protected:
-	uint8 ram[0x800];
+	struct
+	{
+		bool InterruptPending = false;
+		bool nmiPending = 0;
+		bool nmiLine = 0;
+		bool irqLine = 0;
+		bool apuLine = 0;
 
-	struct IO {
-    	bool interrPending = 0;
-    	bool nmiPending = 0;
-    	bool nmiLine = 0;
-    	bool irqLine = 0;
-    	bool apuLine = 0;
+		bool rdyLine = 1;
+		bool rdyAddrValid = 0;
+		uint16 rdyAddrValue;
 
-    	bool rdyLine = 1;
-    	bool rdyAddrValid = 0;
-    	uint16 rdyAddrValue;
+		bool oamdmaPending = 0;
+		uint8 oamdmaPage;
+	} IO;
 
-    	bool oamdmaPending = 0;
-    	uint8 oamdmaPage;
-  } io;
+public:
+	// #TODO: Load clock rate based on PAL/NTSC in header from cart.
+
+	void Tick(uint32 Clocks);
+	void Boot(bool Reset);
+
+	uint8 ReadMemory(uint11 Address);
+	void WriteMemory(uint11 Address, uint8 Data);
+
+	uint8 ReadIO(uint16 Address);
+	void WriteIO(uint16 Address, uint8 Data);
+
+	void nmi(uint16& Vector);
+	void oamdma();
+
+	//  Timing and IO operations
+	void nmi_L(bool);
+	void irq_L(bool);
+	void apu_L(bool);
+
+	void rdy_L(bool);
+	void rdy_Addr(bool Valid, uint16 Value = 0);
 };
