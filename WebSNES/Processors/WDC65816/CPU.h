@@ -57,12 +57,12 @@ public:
 public:
 	// #TODO: Load clock rate based on PAL/NTSC in header from cartridge?
 
-  void Boot(bool Reset);
+	void Boot(bool Reset);
 	void Tick(uint32 Clocks);
 
 	uint8 ReadMemory(uint11 Address);
 	void WriteMemory(uint11 Address, uint8 Data);
-  
+
 	uint8 ReadIO(uint16 Address);
 	void WriteIO(uint16 Address, uint8 Data);
 
