@@ -40,25 +40,56 @@ public:
 
 	struct
 	{
-		bool InterruptPending = false;
-		bool nmiPending = 0;
-		bool nmiLine = 0;
-		bool irqLine = 0;
-		bool apuLine = 0;
+		// Input
+		bool RESB = 0;  // Reset.
+		bool ABORTB = 0;  // Abort input.
+		bool IRQB = 0;  // Interrupt request.
+		bool NMI = 0;  // Non-maskable interrupt.
+		bool BE = 0;  // Bus enable.
 
-		bool rdyLine = 1;
-		bool rdyAddrValid = 0;
-		uint16 rdyAddrValue;
+		// Output
+		bool VPB = 0;  // Vector pull.
+		bool ML = 0;  // Memory lock.
+		bool VPA = 0;  // Valid program address.
+		bool VDA = 0;  // Valid data address.
+		bool RWB = 0;  // Read/write.
 
-		bool oamdmaPending = 0;
-		uint8 oamdmaPage;
-	} IO;
+		// Bidirectional
+		bool RDY = 0;  // Ready.
+
+
+		// Unknown
+		bool XIN = 0;
+		bool HBLANK = 0;
+		bool VBLANK = 0;
+		bool REFRESH = 0;
+		bool DRAMMODE = 0;
+		bool DMA = 0;
+		bool CPUCK = 0;
+		bool SYSCK = 0;
+		bool ALCK = 0;
+		bool XF = 0;
+		bool MF = 0;
+		bool TCKSEL0 = 0;
+		bool TCKSEL1 = 0;
+		bool TM = 0;
+		bool HVCMODE = 0;
+		bool HALT = 0;
+		bool RAMSEL = 0;
+		bool ROMSEL = 0;
+		bool CPURD = 0;
+		bool CPUWR = 0;
+		bool PARD = 0;
+		bool PAWR = 0;
+	} Pins;
+
+	size_t Clock = 0;
 
 public:
 	// #TODO: Load clock rate based on PAL/NTSC in header from cartridge?
 
 	void Boot(bool Reset);
-	void Tick(uint32 Clocks);
+	void Tick(uint1 Cycles = 2);
 
 	uint8 ReadMemory(uint11 Address);
 	void WriteMemory(uint11 Address, uint8 Data);
@@ -70,17 +101,6 @@ public:
 	{
 		return Registers.ProcessorStatus.Data & Flag;
 	}
-
-	void nmi(uint16& Vector);
-	void oamdma();
-
-	//  Timing and IO operations
-	void nmi_L(bool);
-	void irq_L(bool);
-	void apu_L(bool);
-
-	void rdy_L(bool);
-	void rdy_Addr(bool Valid, uint16 Value = 0);
 
 	void Execute(const Instruction& InInstruction);
 };
