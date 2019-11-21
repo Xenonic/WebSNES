@@ -4,18 +4,83 @@
 
 #include <map>
 
+//  Arithmetic Instructions
 void ADC(WDC65816& CPU)
 {
-	//CPU.Registers.Accumulator += Operand[0] + (CPU.IsStatusSet(StatusFlags::C) ? 1 : 0);
+	/* Add accumulator with value and carry bit*/
+	CPU.Registers.Accumulator += Operand[0] + (CPU.IsStatusSet(StatusFlags::C) ? 1 : 0);
 }
 
+void SBC(WDC65816& CPU)
+{
+	/* Subtract from accumulator value and carry bit*/
+	//CPU.Registers.Accumulator -= Operand[0] + (CPU.IsStatusSet(StatusFlags::C) ? 1 : 0);
+}
+
+//  Logical instructions
 void AND(WDC65816& CPU)
+{	
+	/* AND operation between accumulator and Memory storing result in accumulator*/
+	CPU.Registers.Accumulator = Operand[0] & CPU.Registers.Accumulator
+	
+}
+
+void EOR(WDC65816& CPU)
+{
+	/* EOR operation between accumulator and Memory storing result in accumulator*/
+	CPU.Registers.Accumulator = Operand[0] ^ CPU.Registers.Accumulator
+
+}
+
+void ORA(WDC65816& CPU)
+{
+	/* OR operation between accumulator and Memory storing result in accumulator*/
+	CPU.Registers.Accumulator = Operand[0] | CPU.Registers.Accumulator
+}
+
+void TSB(WDC65816& CPU)
 {
 
 }
 
+void TRB(WDC65816& CPU)
+{
+
+}
+
+// Shift instructions
 void ASL(WDC65816& CPU)
 {
+	/* Arithmetic shift left */
+	//SIDENOTE:WHY IS ARITHMETIC VS LOGICAL SHIFT COMPILER DEPENDANT IN C?? THIS MAKES NO SENSE JUST
+	// JAVA GOT IT RIGHT WITH >>> and <<<
+
+	CPU.Registers.Accumulator = CPU.Registers.Accumulator << Operand[0];
+}
+
+void LSR(WDC65816& CPU)
+{
+	/* Arithmetic shift right */
+	CPU.Registers.Accumulator = (CPU.Registers.Accumulator / 2)^Operand[0];
+}
+
+void ROL(WDC65816& CPU)
+{
+	/* Rotate Right*/
+	//NOTE: this will break if Operand[0] == 0 | 32 or Accumulator > 32 bits. I don't see this being a problem
+	// But if this is an issue we can implement something else.
+	
+	CPU.Registers.Accumulator = CPU.Registers.Accumulator << Operand[0] | CPU.Registers.Accumulator >> (32 - Operand[0]);
+}
+
+void ROR(WDC65816& CPU)
+{
+	/* Rotate Left*/
+	//  This calls a right shift and then reverses...using a magic number 
+	//  (shhh it's magic that I stole a long time ago from http://www.inwap.com/pdp10/hbaker/hakmem/hakmem.html)
+	//  This assumes that Accumulator is a byte or smaller (i think it is)
+
+	CPU.Registers.Accumulator = (ROL(CPU) * 0x0202020202ULL & 0x010884422010ULL) % 1023;
 
 }
 
@@ -23,6 +88,7 @@ void BCC(WDC65816& CPU)
 {
 
 }
+
 
 void BCS(WDC65816& CPU)
 {
@@ -126,32 +192,28 @@ void DEC(WDC65816& CPU)
 
 void DEX(WDC65816& CPU)
 {
-
+	//CPU.Registers.IndexX -= 1;
+	 
 }
 
 void DEY(WDC65816& CPU)
 {
-
-}
-
-void EOR(WDC65816& CPU)
-{
-
+	//CPU.Registers.IndexY -= 1;
 }
 
 void INC(WDC65816& CPU)
 {
-
+	
 }
 
 void INX(WDC65816& CPU)
 {
-
+	//CPU.Registers.IndexX += 1;
 }
 
 void INY(WDC65816& CPU)
 {
-
+	//CPU.Registers.IndexY += 1;
 }
 
 void JMP(WDC65816& CPU)
@@ -189,11 +251,6 @@ void LDY(WDC65816& CPU)
 
 }
 
-void LSR(WDC65816& CPU)
-{
-
-}
-
 void MVN(WDC65816& CPU)
 {
 
@@ -209,10 +266,7 @@ void NOP(WDC65816& CPU)
 
 }
 
-void ORA(WDC65816& CPU)
-{
 
-}
 
 void PEA(WDC65816& CPU)
 {
@@ -284,15 +338,6 @@ void REP(WDC65816& CPU)
 
 }
 
-void ROL(WDC65816& CPU)
-{
-
-}
-
-void ROR(WDC65816& CPU)
-{
-
-}
 
 void RTI(WDC65816& CPU)
 {
@@ -309,10 +354,7 @@ void RTL(WDC65816& CPU)
 
 }
 
-void SBC(WDC65816& CPU)
-{
-	//CPU.Registers.Accumulator -= Operand[0] - (CPU.IsStatusSet(StatusFlags::C) ? 0 : 1);
-}
+
 
 void SEC(WDC65816& CPU)
 {
@@ -361,12 +403,12 @@ void STZ(WDC65816& CPU)
 
 void TAX(WDC65816& CPU)
 {
-
+	//CPU.Registers.IndexX = CPU.Registers.Accumulator
 }
 
 void TAY(WDC65816& CPU)
 {
-
+	//CPU.Registers.IndexY = CPU.Registers.Accumulator
 }
 
 void TCD(WDC65816& CPU)
@@ -415,16 +457,6 @@ void TYA(WDC65816& CPU)
 }
 
 void TYX(WDC65816& CPU)
-{
-
-}
-
-void TRB(WDC65816& CPU)
-{
-
-}
-
-void TSB(WDC65816& CPU)
 {
 
 }
