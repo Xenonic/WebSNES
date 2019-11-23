@@ -21,9 +21,6 @@
     <ClInclude Include="Processors\WDC65816\CPU.h">
       <Filter>Processors\WDC65816</Filter>
     </ClInclude>
-    <ClInclude Include="Processors\WDC65816\Disassembler.h">
-      <Filter>Processors\WDC65816</Filter>
-    </ClInclude>
     <ClInclude Include="Processors\Register.h">
       <Filter>Processors</Filter>
     </ClInclude>
@@ -33,10 +30,14 @@
     <ClInclude Include="Processors\WDC65816\Instructions.h">
       <Filter>Processors\WDC65816</Filter>
     </ClInclude>
+    <ClInclude Include="Cartridge.h" />
+    <ClInclude Include="Engine.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Processors\WDC65816\CPU.cpp">
       <Filter>Processors\WDC65816</Filter>
     </ClCompile>
+    <ClCompile Include="Cartridge.cpp" />
+    <ClCompile Include="Engine.cpp" />
   </ItemGroup>
 </Project>

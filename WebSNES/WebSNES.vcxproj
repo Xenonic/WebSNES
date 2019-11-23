@@ -129,13 +129,16 @@
   <ItemGroup>
     <ClInclude Include="Base\Integer.h" />
     <ClInclude Include="Base\Types.h" />
+    <ClInclude Include="Cartridge.h" />
+    <ClInclude Include="Engine.h" />
     <ClInclude Include="Processors\Instruction.h" />
     <ClInclude Include="Processors\Register.h" />
     <ClInclude Include="Processors\WDC65816\CPU.h" />
-    <ClInclude Include="Processors\WDC65816\Disassembler.h" />
     <ClInclude Include="Processors\WDC65816\Instructions.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Cartridge.cpp" />
+    <ClCompile Include="Engine.cpp" />
     <ClCompile Include="Processors\WDC65816\CPU.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

@@ -285,7 +285,7 @@ public:
 	template <typename T>
 	constexpr auto operator&(T Value)
 	{
-		return Integer{ Cast(Data & Value) };
+		return Integer{ Cast(Data & static_cast<BaseType>(Value)) };
 	}
 
 	template <typename T>

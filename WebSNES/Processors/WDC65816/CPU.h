@@ -4,6 +4,8 @@
 #include "../Register.h"
 #include "../Instruction.h"
 
+class Cartridge;
+
 class WDC65816
 {
 private:
@@ -85,14 +87,11 @@ public:
 
 	size_t Clock = 0;
 
+	Cartridge* Source;
+
 public:
-	// #TODO: Load clock rate based on PAL/NTSC in header from cartridge?
-
-	void Boot(bool Reset);
-	void Tick(uint1 Cycles = 2);
-
-	uint8 ReadMemory(uint11 Address);
-	void WriteMemory(uint11 Address, uint8 Data);
+	//uint8 ReadMemory(uint11 Address);
+	//void WriteMemory(uint11 Address, uint8 Data);
 
 	uint8 ReadIO(uint16 Address);
 	void WriteIO(uint16 Address, uint8 Data);
@@ -101,6 +100,12 @@ public:
 	{
 		return Registers.ProcessorStatus.Data & Flag;
 	}
+
+	void Tick();
+
+	uint8 Fetch();
+
+	Instruction Disassemble(uint8 Data) const;
 
 	void Execute(const Instruction& InInstruction);
 };
